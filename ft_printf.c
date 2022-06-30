@@ -6,7 +6,7 @@
 /*   By: fcaetano <fernandacunha@id.uff.br>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:30:38 by fcaetano          #+#    #+#             */
-/*   Updated: 2022/06/30 15:45:11 by fcaetano         ###   ########.fr       */
+/*   Updated: 2022/06/30 15:51:59 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int	ft_printf(const char *str, ...)
 			str++;
 			bprint += print_specifiers(ptr, *str);
 		}
-		else
-			bprint += ft_putchar(*str); //caso de % solto na frase, ele só printa o %, pode ser assim ? -> função original dá segfault, o que fazer ??? segfault é comportamento indefinido, então foda-se ???
 		str++;
 	}
 	return (bprint);
