@@ -54,6 +54,23 @@ int	putdec(int n)
 	return (bprint);
 }
 
+int	putunsigned(unsigned int base, unsigned int n, char c)
+{
+	int	size;
+
+	size = 0;
+
+	if (n >= base)
+		size += putunsigned(base, (n / base), c);
+	if ((n % base) <= 9)
+		size += ft_putchar((n % base) + '0');
+	else if (c == 'x')
+		size += ft_putchar((n % 16) + 87);
+	else if (c == 'X')
+		size += ft_putchar((n % 16) + 55);
+	return (size);
+}
+
 /* int	putu(unsigned int n)
 {
 	int		size;
