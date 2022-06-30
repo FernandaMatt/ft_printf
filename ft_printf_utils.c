@@ -1,5 +1,18 @@
 #include "ft_printf.h"
 
+int	ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if ((char)c == *s)
+			return (1);
+		s++;
+	}
+	if ((char)c == *s)
+		return (1);
+	return (0);
+}
+
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
