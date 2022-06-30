@@ -20,7 +20,7 @@ int	putptr_rec(unsigned long n, char t) //testar com NULL
 int	putptr(unsigned long n, char t)
 {	
 	if (n == 0)
-		return (write(1, "(null)", 6));
+		return (write(1, "0x0", 3));
 	return (ft_putstr("0x") + putptr_rec(n, t));
 }
 

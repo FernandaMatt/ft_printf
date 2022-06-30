@@ -22,8 +22,8 @@ int	ft_putchar(char c)
 int    ft_putstr(char *s)
 {
 	if (s == NULL)
-		return (0);
-	write(0, s, ft_strlen(s));
+		return (write(1, "(null)", 6));
+	write(1, s, ft_strlen(s));
 	return (ft_strlen(s));
 }
 
