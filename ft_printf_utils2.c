@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcaetano <fernandacunha@id.uff.br>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 15:40:06 by fcaetano          #+#    #+#             */
+/*   Updated: 2022/06/30 15:42:03 by fcaetano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	putptr_rec(unsigned long n, char t) //testar com NULL
+int	putptr_rec(unsigned long n, char t)
 {
 	int		size;
 
 	size = 0;
-	
 	if (n >= 16)
 		size += putptr_rec(n / 16, t);
 	if ((n % 16) <= 9)
@@ -29,7 +40,6 @@ int	putdec_rec(int n)
 	int		size;
 
 	size = 0;
-
 	if (n >= 10)
 		size += putdec_rec(n / 10);
 	size += ft_putchar((n % 10) + '0');
@@ -38,7 +48,7 @@ int	putdec_rec(int n)
 
 int	putdec(int n)
 {
-	int bprint;
+	int	bprint;
 
 	bprint = 0;
 	if (n == 0)
@@ -59,7 +69,6 @@ int	putunsigned(unsigned int base, unsigned int n, char c)
 	int	size;
 
 	size = 0;
-
 	if (n >= base)
 		size += putunsigned(base, (n / base), c);
 	if ((n % base) <= 9)

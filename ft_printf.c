@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcaetano <fernandacunha@id.uff.br>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 15:30:38 by fcaetano          #+#    #+#             */
+/*   Updated: 2022/06/30 15:45:11 by fcaetano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int print_specifiers(va_list ptr, char specifier)
+int	print_specifiers(va_list ptr, char specifier)
 {
 	if (specifier == 'c')
 		return (ft_putchar(va_arg(ptr, int)));
 	if (specifier == 's')
-		return (ft_putstr(va_arg(ptr, char*)));	
+		return (ft_putstr(va_arg(ptr, char *)));
 	if (specifier == 'p')
 		return (putptr(va_arg(ptr, unsigned long), 'x'));
 	if (specifier == '%')
@@ -18,17 +30,17 @@ int print_specifiers(va_list ptr, char specifier)
 		return (putunsigned(16, va_arg(ptr, unsigned int), 'x'));
 	if (specifier == 'X')
 		return (putunsigned(16, va_arg(ptr, unsigned int), 'X'));
-	return(0);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ptr;
-	int	bprint;
+	int		bprint;
 
 	va_start(ptr, str);
-	bprint = 0;	
-	while(*str)
+	bprint = 0;
+	while (*str)
 	{
 		if (*str != '%')
 			bprint += ft_putchar(*str);
@@ -43,14 +55,3 @@ int	ft_printf(const char *str, ...)
 	}
 	return (bprint);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char c = 'a';
-	char str[] = "Uma string qualquer";
-	char *nptr = NULL;
-	printf("Retorno função ft_printf: %i\n", ft_printf("Teste sem args extras\nTeste com char %c OK\nTeste com str %s OK\nTeste com pointer %p OK\nTeste com pointer NULL %p OK\nTeste com %% seguidos na frase OK\nTeste com decimal %d OK\nTeste com inteiro %i OK\nTeste com decimal(u) %u OK\nTeste com hexa(x) %x OK\nTeste com hexa(X) %X OK\n", c, str, &c, nptr, 42, -42, -5, 16, 736));
-	printf("Retorno função original : %i\n", printf("Teste sem args extras\nTeste com char %c OK\nTeste com str %s OK\nTeste com pointer %p OK\nTeste com pointer NULL %p OK\nTeste com %% seguidos na frase OK\nTeste com decimal %d OK\nTeste com inteiro %i OK\nTeste com decimal(u) %u OK\nTeste com hexa(x) %x OK\nTeste com hexa(X) %X OK\n", c, str, &c, nptr, 42, -42, -5, 16, 736));
-	return (0);
-}*/

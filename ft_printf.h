@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcaetano <fernandacunha@id.uff.br>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 15:37:29 by fcaetano          #+#    #+#             */
+/*   Updated: 2022/06/30 15:38:21 by fcaetano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <unistd.h>
@@ -12,9 +24,7 @@ int	putptr(unsigned long n, char t);
 int	putdec_rec(int n);
 int	putdec(int n);
 int	putunsigned(unsigned int base, unsigned int n, char c);
-int print_specifiers(va_list ptr, char specifier);
+int	print_specifiers(va_list ptr, char specifier);
 int	ft_printf(const char *str, ...);
 
 #endif
-
-

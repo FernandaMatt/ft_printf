@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcaetano <fernandacunha@id.uff.br>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/30 15:38:49 by fcaetano          #+#    #+#             */
+/*   Updated: 2022/06/30 15:39:50 by fcaetano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_strchr(const char *s, int c)
@@ -19,7 +31,7 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-int    ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	if (s == NULL)
 		return (write(1, "(null)", 6));
